@@ -31,3 +31,31 @@ Deploy `web/out/` to Vercel, Netlify, or GitHub Pages. Re-run `scripts/export-wi
 
 - [#15](https://github.com/wazootech/wiki/issues/15)
 - [Wiki Subcommand export](https://github.com/wazootech/wiki/blob/main/docs/wiki/Wiki_Subcommand_export.md)
+
+## Deployment
+
+### GitHub Pages (preferred)
+
+1. Go to **Settings &rarr; Pages &rarr; Source: GitHub Actions**
+2. Push to the default branch &mdash; the \.github/workflows/deploy-pages.yml\ workflow builds the SSG site and deploys automatically
+3. Your site appears at \https://{org}.github.io/{repo}/\
+
+### Vercel
+
+1. Import this repo at [vercel.com/new](https://vercel.com/new)
+2. Vercel auto-detects the framework &mdash; default settings should work
+3. Deploy
+
+### Netlify
+
+1. Import this repo at [app.netlify.com/start](https://app.netlify.com/start)
+2. **Build command:** \pip install wazootech-wiki && bash scripts/export-wiki-data.sh && cd web && npm ci && npm run build\
+3. **Publish directory:** \web/dist\ (Astro) or \web/out\ (Next.js)
+4. Deploy
+
+### Cloudflare Pages
+
+1. Import this repo in the Cloudflare dashboard
+2. **Build command:** \pip install wazootech-wiki && bash scripts/export-wiki-data.sh && cd web && npm ci && npm run build\
+3. **Output directory:** \web/dist\ (Astro) or \web/out\ (Next.js)
+4. Deploy
