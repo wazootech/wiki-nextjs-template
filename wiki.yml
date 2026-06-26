@@ -1,4 +1,4 @@
-﻿wiki:
+wiki:
   inputs:
     - wiki
   filename_pattern: "[A-Za-z0-9_()-]+\\.md"
