@@ -28,7 +28,7 @@ export default function Home() {
                 >
                   {page.slug.replace(/_/g, " ")}
                 </a>
-                {page.frontmatter.description && (
+                {typeof page.frontmatter.description === "string" && (
                   <p className="text-sm text-zinc-500 dark:text-zinc-400">
                     {page.frontmatter.description}
                   </p>
