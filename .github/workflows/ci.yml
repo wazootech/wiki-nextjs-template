@@ -1,0 +1,27 @@
+name: CI
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+permissions:
+  contents: read
+
+jobs:
+  repository-integrity:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Validate repository files
+        shell: bash
+        run: |
+          test -s AGENTS.md
+          if grep -n $'\r' AGENTS.md; then
+            echo "AGENTS.md contains CRLF line endings"
+            exit 1
+          fi
+          git diff --check
