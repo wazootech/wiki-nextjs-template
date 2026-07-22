@@ -7,7 +7,7 @@ const WIKI_DIR = path.resolve(process.cwd(), "../wiki");
 export interface WikiPage {
   slug: string;
   filename: string;
-  frontmatter: Record<string, unknown>;
+  frontmatter: Record<string, string>;
   content: string;
 }
 

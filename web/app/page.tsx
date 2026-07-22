@@ -30,7 +30,7 @@ export default function Home() {
                 </a>
                 {page.frontmatter.description && (
                   <p className="text-sm text-zinc-500 dark:text-zinc-400">
-                    {String(page.frontmatter.description)}
+                    {page.frontmatter.description}
                   </p>
                 )}
               </li>
